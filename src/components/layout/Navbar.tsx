@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { ModeToggle } from "./mode-toggle";
-import { Button } from "./ui/button";
+import { ModeToggle } from "../mode-toggle";
+import { Button } from "../ui/button";
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import { FaRegHandScissors } from "react-icons/fa";
-import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
+import { RxCross1 } from "react-icons/rx";
 
 export default function Navbar() {
   const [mobileNav, setMobileNav] = useState(false);
@@ -19,44 +19,52 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="flex justify-between items-center p-4 md:p-2">
-      <a href="/" className="flex items-center gap-2 text-lg md:text-2xl">
+    <header className="flex items-center justify-between py-2 px-6">
+      <a
+        href="/"
+        className="flex items-center gap-2 text-xl font-bold md:text-2xl"
+      >
         <span>
           <FaRegHandScissors className="rotate-45 text-violet-500" />
         </span>
         <span>Goofy Fades</span>
       </a>
       <nav>
-        <ul className="hidden md:block">
+        <ul className="hidden md:flex items-center">
           <li className="flex items-center">
             {Links.map((link, index) => (
               <a
                 href={link.href}
                 key={index}
-                className="text-md flex px-4 py-8 font-semibold uppercase "
+                className="text-md flex p-4 font-semibold uppercase"
               >
                 {link.title}
               </a>
             ))}
+          </li>
+          <li>
             <ModeToggle />
           </li>
         </ul>
-        <div className="flex items-center gap-2 md:hidden">
-          <Button variant="outline">
-            <motion.button
+        <div className="flex items-center md:hidden">
+          <ModeToggle />
+          <Button variant="ghost">
+            <motion.a
               initial="hide"
               animate={mobileNav ? "show" : "hide"}
               onClick={toggleMobileNav}
               className="relative z-50 flex flex-col space-y-1 md:hidden"
             >
               {mobileNav ? (
-                <MdKeyboardDoubleArrowLeft size={25} />
+                <RxCross1 size={25} />
               ) : (
-                <MdKeyboardDoubleArrowLeft size={25} className="rotate-180" />
+                <RxCross1
+                  size={25}
+                  className="rotate-180 transition-all duration-500"
+                />
               )}
-            </motion.button>
+            </motion.a>
           </Button>
-          <ModeToggle />
         </div>
         <AnimatePresence>
           {mobileNav && (
@@ -82,16 +90,15 @@ export default function Navbar() {
                 initial="hide"
                 animate="show"
                 exit="hide"
-                className="fixed inset-0 flex flex-col justify-center space-y-10 p-6 lg:hidden"
+                className="fixed inset-0 flex flex-col justify-center space-y-10 p-6 lg:hidden bg-white dark:bg-black z-10"
               >
                 <ul className="list-none space-y-6">
-                  <div className="flex gap-2">
+                  <li>
                     <FaRegHandScissors
                       className="rotate-45 text-violet-500 mb-12"
                       size={35}
                     />
-                  </div>
-
+                  </li>
                   <motion.li
                     variants={{
                       hide: {
