@@ -5,7 +5,7 @@ import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import { FaRegHandScissors } from "react-icons/fa";
 import { MdKeyboardDoubleArrowLeft } from "react-icons/md";
 
-export default function Navbar({ isVisible }) {
+export default function Navbar() {
   const [mobileNav, setMobileNav] = useState(false);
 
   const toggleMobileNav = () => {
@@ -28,7 +28,7 @@ export default function Navbar({ isVisible }) {
       </a>
       <nav>
         <ul className="hidden md:block">
-          <li className="flex">
+          <li className="flex items-center">
             {Links.map((link, index) => (
               <a
                 href={link.href}
@@ -38,46 +38,43 @@ export default function Navbar({ isVisible }) {
                 {link.title}
               </a>
             ))}
+            <ModeToggle />
           </li>
         </ul>
-        <motion.button
-          initial="hide"
-          animate={mobileNav ? "show" : "hide"}
-          onClick={toggleMobileNav}
-          className="relative z-50 flex flex-col space-y-1 md:hidden"
-        >
-          {mobileNav ? (
-            <MdKeyboardDoubleArrowLeft />
-          ) : (
-            <MdKeyboardDoubleArrowLeft className="rotate-180" />
-          )}
-        </motion.button>
+        <div className="flex items-center gap-2 md:hidden">
+          <Button variant="outline">
+            <motion.button
+              initial="hide"
+              animate={mobileNav ? "show" : "hide"}
+              onClick={toggleMobileNav}
+              className="relative z-50 flex flex-col space-y-1 md:hidden"
+            >
+              {mobileNav ? (
+                <MdKeyboardDoubleArrowLeft size={25} />
+              ) : (
+                <MdKeyboardDoubleArrowLeft size={25} className="rotate-180" />
+              )}
+            </motion.button>
+          </Button>
+          <ModeToggle />
+        </div>
         <AnimatePresence>
           {mobileNav && (
             <MotionConfig
               transition={{
                 type: "spring",
-                bounce: 0.5,
               }}
             >
               <motion.div
                 key="mobile-nav"
                 variants={{
                   hide: {
-                    y: "-100%",
-                    transition: {
-                      duration: 1,
-                      y: { duration: 0.1 },
-                      staggerChildren: 0.5,
-                      when: "afterChildren",
-                    },
+                    x: "100%",
                   },
                   show: {
-                    y: "0%",
+                    x: "0%",
                     transition: {
-                      duration: 1,
-                      y: { duration: 0.5 },
-                      staggerChildren: 1,
+                      bounce: 0.5,
                       when: "beforeChildren",
                     },
                   },
@@ -85,42 +82,59 @@ export default function Navbar({ isVisible }) {
                 initial="hide"
                 animate="show"
                 exit="hide"
-                className="fixed inset-0 flex flex-col justify-center space-y-10 bg-black p-6 lg:hidden"
+                className="fixed inset-0 flex flex-col justify-center space-y-10 p-6 lg:hidden"
               >
-                <motion.ul
-                  variants={{
-                    hide: {
-                      y: "-25%",
-                      opacity: 0,
-                    },
-                    show: {
-                      y: "0%",
-                      opacity: 1,
-                      transition: {
-                        staggerChildren: 0.5,
-                        when: "afterChildren",
+                <ul className="list-none space-y-6">
+                  <div className="flex gap-2">
+                    <FaRegHandScissors
+                      className="rotate-45 text-violet-500 mb-12"
+                      size={35}
+                    />
+                  </div>
+
+                  <motion.li
+                    variants={{
+                      hide: {
+                        x: "50%",
+                        opacity: 0,
                       },
-                    },
-                  }}
-                  className="list-none space-y-6"
-                >
-                  <FaRegHandScissors
-                    className="rotate-45 text-violet-500 mb-12"
-                    size={35}
-                  />
-                  <li>
+                      show: {
+                        x: "0%",
+                        opacity: 1,
+                      },
+                    }}
+                  >
                     {Links.map((link, index) => (
-                      <a
+                      <motion.a
+                        variants={{
+                          hide: {
+                            x: "100%",
+                            opacity: 0,
+                          },
+                          show: (index) => ({
+                            x: "0%",
+                            opacity: 1,
+                            transition: {
+                              delay: index * 0.5,
+                              bounce: 0.5,
+                              when: "beforeChildren",
+                            },
+                          }),
+                        }}
+                        initial="hide"
+                        animate="show"
+                        exit="hide"
+                        custom={index}
                         href={link.href}
                         key={index}
                         onClick={toggleMobileNav}
-                        className="flex text-6xl gap-2 tracking-widest font-semibold uppercase"
+                        className="flex items-start text-6xl tracking-widest font-semibold uppercase"
                       >
                         {link.title}
-                      </a>
+                      </motion.a>
                     ))}
-                  </li>
-                </motion.ul>
+                  </motion.li>
+                </ul>
               </motion.div>
             </MotionConfig>
           )}
