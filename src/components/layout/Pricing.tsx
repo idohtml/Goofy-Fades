@@ -8,8 +8,7 @@ import { IoIosCheckmarkCircle } from "react-icons/io";
 export default function Pricing() {
   return (
     <section className="max-w-6xl mx-auto md:mt-12">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-8 drop-shadow-2xl">
-        {/* Grid 1 */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 drop-shadow-sm">
         <div className="bg-violet-600 md:rounded-xl overflow-hidden">
           <h2 className="flex flex-col p-4 md:p-8 mb-4 text-2xl">
             <span>Save more</span>
@@ -31,7 +30,6 @@ export default function Pricing() {
             alt="Image of Scissors"
           />
         </div>
-        {/* Grid 2 */}
         <div className="p-4 md:p-8 bg-stone-100 md:rounded-xl flex flex-col">
           <h2 className="flex items-center just gap-4 dark:text-black">
             <span>
@@ -59,7 +57,6 @@ export default function Pricing() {
             Book now
           </Button>
         </div>
-        {/* Grid 3 */}
         <div className="p-4 md:p-8 bg-stone-100 md:rounded-xl flex flex-col">
           <h2 className="flex items-center just gap-4 dark:text-black">
             <span>
