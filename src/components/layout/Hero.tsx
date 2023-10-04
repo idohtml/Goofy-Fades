@@ -19,7 +19,10 @@ export default function Hero() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <H1>Get your hair done, get your swagger on</H1>
+          <H1>
+            Get your hair <span className="text-violet-500">done</span>, Get
+            your swagger <span className="text-violet-500">on</span>
+          </H1>
           <P>
             Get your hair done, get your swagger on. That's what we're all about
             at Goofy Fades. We know that when you look good, you feel good. And
