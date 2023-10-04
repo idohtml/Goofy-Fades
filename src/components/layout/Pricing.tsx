@@ -7,8 +7,8 @@ import { IoIosCheckmarkCircle } from "react-icons/io";
 
 export default function Pricing() {
   return (
-    <section className="max-w-5xl mx-auto md:mt-12">
-      <div className="grid grid-cols-1 md:grid-cols-3 md:gap-4 md:gap-8">
+    <section className="max-w-6xl mx-auto md:mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-8 drop-shadow-2xl">
         {/* Grid 1 */}
         <div className="bg-violet-600 md:rounded-xl overflow-hidden">
           <h2 className="flex flex-col p-4 md:p-8 mb-4 text-2xl">
@@ -42,16 +42,16 @@ export default function Pricing() {
           <p className="mt-8 text-gray-400 text-lg">What you get</p>
           <ul className="mt-4 dark:text-black">
             <li className="flex items-center gap-2">
-              <IoIosCheckmarkCircle size={20} />
+              <IoIosCheckmarkCircle className="text-violet-500" size={20} />
               Haircut
             </li>
             <li className="flex items-center gap-2">
-              <IoIosCheckmarkCircle size={20} />
+              <IoIosCheckmarkCircle className="text-violet-500" size={20} />
               Beard trim
             </li>
           </ul>
-          <Separator className="mt-4" />
           <p className="flex-1"></p>
+          <Separator className="mt-4" />
           <p className="mt-4 text-3xl font-bold dark:text-black">
             $25 <span className="text-lg font-normal text-gray-400">/day</span>
           </p>
@@ -70,23 +70,24 @@ export default function Pricing() {
           <p className="mt-8 text-gray-400 text-lg">What you get</p>
           <ul className="mt-4 dark:text-black">
             <li className="flex items-center gap-2">
-              <IoIosCheckmarkCircle size={20} />
+              <IoIosCheckmarkCircle className="text-violet-500" size={20} />
               Haircut
             </li>
             <li className="flex items-center gap-2">
-              <IoIosCheckmarkCircle size={20} />
+              <IoIosCheckmarkCircle className="text-violet-500" size={20} />
               Beard trim
             </li>
             <li className="flex items-center gap-2">
-              <IoIosCheckmarkCircle size={20} />
+              <IoIosCheckmarkCircle className="text-violet-500" size={20} />
               Hair wash + Schampoo
             </li>
             <li className="flex items-center gap-2">
-              <IoIosCheckmarkCircle size={20} />4 visits each month
+              <IoIosCheckmarkCircle className="text-violet-500" size={20} />4
+              visits each month
             </li>
           </ul>
-          <Separator className="mt-4" />
           <p className="flex-1"></p>
+          <Separator className="mt-4" />
           <p className="mt-4 text-3xl font-bold dark:text-black">
             $80{" "}
             <span className="text-lg text-gray-400 font-normal">/month</span>

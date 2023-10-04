@@ -12,7 +12,7 @@ export default function Hero() {
         src={HeroImage}
         alt="Barber knives"
       />
-      <div className="h-full max-w-5xl mx-auto">
+      <div className="h-full max-w-6xl mx-auto">
         <motion.div
           className="text-white dark:text-white py-40 p-6 md:w-1/2"
           initial={{ opacity: 0, x: -25 }}
