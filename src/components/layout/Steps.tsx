@@ -1,7 +1,7 @@
 import haircut1 from "@/assets/images/haircut-1.jpg";
 import haircut2 from "@/assets/images/haircut-2.jpg";
 import haircut3 from "@/assets/images/haircut-3.jpg";
-import { GiBeard, GiHairStrands } from "react-icons/gi";
+import { GiBeard, GiHairStrands, GiComb } from "react-icons/gi";
 
 export default function Steps() {
   return (
@@ -43,8 +43,8 @@ export default function Steps() {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 mt-4 md:mt-8">
         <div className="p-4 md:p-8">
-          <GiHairStrands size={40} />
-          <h3 className="text-2xl md:text-4xl font-bold my-4">Step 1</h3>
+          <GiComb size={40} />
+          <h3 className="text-2xl md:text-4xl font-bold my-4">Step 3</h3>
           <p className="text-lg md:text-xl">
             As soon as you are done with your haircut and beard trim, you can
             get your hair washed and styled. We will make sure you get the best

@@ -1,3 +1,4 @@
+import Gallery from "@/components/layout/Gallery";
 import Hero from "@/components/layout/Hero";
 import Pricing from "@/components/layout/Pricing";
 import Steps from "@/components/layout/Steps";
@@ -11,6 +12,7 @@ function Home() {
       <Subhero />
       <Steps />
       <Pricing />
+      <Gallery />
     </ThemeProvider>
   );
 }
