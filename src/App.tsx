@@ -4,6 +4,7 @@ import Home from "@/routes/Home";
 import Pricing from "@/routes/Pricing";
 import ErrorPage from "./routes/ErrorPage";
 import { ThemeProvider } from "./components/theme-provider";
+import Footer from "./components/layout/Footer";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
               <Route path="/*" element={<ErrorPage />} />
             </Routes>
           </main>
+          <Footer />
         </div>
       </Router>
     </ThemeProvider>

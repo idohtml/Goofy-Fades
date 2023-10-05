@@ -8,7 +8,7 @@ const images = [img1, img2, img3];
 export default function Gallery() {
   return (
     <section className="max-w-6xl mx-auto md:mt-16">
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 px-4 gap-4">
         <div className="w-4/5">
           <h2 className="text-6xl font-bold">Gallery</h2>
           <h3 className="text-gray-400 my-8">
@@ -26,13 +26,13 @@ export default function Gallery() {
             <BsTwitter className="text-4xl text-blue-400" />
           </div>
         </div>
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4">
           {images.map((image, index) => (
             <img
               key={index}
               src={image}
               alt="Gallery"
-              className="w-52 h-50 rounded-full"
+              className="w-full h-full md:w-52 md:h-50 rounded-full"
             />
           ))}
         </div>
