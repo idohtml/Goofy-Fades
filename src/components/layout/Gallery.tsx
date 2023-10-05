@@ -7,9 +7,9 @@ const images = [img1, img2, img3];
 
 export default function Gallery() {
   return (
-    <section className="max-w-6xl mx-auto md:mt-16 mt-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 px-4 gap-4">
-        <div className="md:w-4/5">
+    <section className="max-w-6xl mx-auto md:mt-16">
+      <div className="grid grid-cols-2 gap-4">
+        <div className="w-4/5">
           <h2 className="text-6xl font-bold">Gallery</h2>
           <h3 className="text-gray-400 my-8">
             Follow us on social media to see more of our work
